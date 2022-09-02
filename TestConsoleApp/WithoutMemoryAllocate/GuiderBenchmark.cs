@@ -15,9 +15,21 @@ namespace TestConsoleApp.WithoutMemoryAllocate
         }
 
         [Benchmark]
+        public Guid ToGuidFromStringOp()
+        {
+            return Guider.ToGuidFromStringOp(TestIdAsString);
+        }
+
+        [Benchmark]
         public string ToStringFromGuid()
         {
             return Guider.ToStringFromGuid(TestIdAsGuid);
+        }
+
+        [Benchmark]
+        public string ToStringFromGuidOp()
+        {
+            return Guider.ToStringFromGuidOp(TestIdAsGuid);
         }
     }
 }

@@ -7,8 +7,8 @@
     {
         static void Main(string[] args)
         {
-            //WithoutMemoryAllocate();
-            BenchmarkRunner.Run<GuiderBenchmarks>();     
+            WithoutMemoryAllocate();
+            //BenchmarkRunner.Run<GuiderBenchmarks>();     
         }
 
         private static void WithoutMemoryAllocate()
@@ -20,10 +20,14 @@
             Console.WriteLine(base64Id);
 
             var urlFriendlyBase64Id = Guider.ToStringFromGuid(id);
+            var urlFriendlyBase64IdOp = Guider.ToStringFromGuidOp(id);
             Console.WriteLine(urlFriendlyBase64Id);
+            Console.WriteLine(urlFriendlyBase64IdOp);
 
             var idAgain = Guider.ToGuidFromString(urlFriendlyBase64Id);
+            var idAgainOp = Guider.ToGuidFromStringOp(urlFriendlyBase64Id);
             Console.WriteLine(idAgain);
+            Console.WriteLine(idAgainOp);
         }
     }
 }
