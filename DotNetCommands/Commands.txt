@@ -1,2 +1,3 @@
 Create web app: dotnet new webapp -o [any name you want]
 Build and run app (go to folder with solution or project file): dotnet run
+Build and run app while watching for changes: dotnet watch run
