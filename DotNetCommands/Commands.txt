@@ -1,0 +1,2 @@
+Create web app: dotnet new webapp -o [any name you want]
+Build and run app (go to folder with solution or project file): dotnet run
