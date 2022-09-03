@@ -1,4 +1,6 @@
 Create console app (create folder): dotnet new console --framework net6.0
+Create minimal api (create folder): dotnet new webapi -minimal --framework net6.0
+Create minimal api: dotnet new webapi -minimal -o [any name you want] --framework net6.0
 Create web app: dotnet new webapp -o [any name you want]
 Build and run app (go to folder with solution or project file): dotnet run
 Build and run app in release mode: dotnet run -c release
