@@ -47,7 +47,7 @@ namespace DataStructureAlgorithmsConsoleApp
 
         private static void RunLinkedListTest()
         {
-            SimpleLinkedList simpleLinkedList = new SimpleLinkedList();
+            SimpleLinkedList<string> simpleLinkedList = new SimpleLinkedList<string>();
             simpleLinkedList.AddLast("One");
             simpleLinkedList.AddLast("Two");
             simpleLinkedList.AddLast("3");
@@ -57,7 +57,7 @@ namespace DataStructureAlgorithmsConsoleApp
 
             Console.WriteLine("");
 
-            SimpleTailLinkedList simpleTailLinkedList = new SimpleTailLinkedList();
+            SimpleTailLinkedList<string> simpleTailLinkedList = new SimpleTailLinkedList<string>();
             simpleTailLinkedList.AddLast("One");
             simpleTailLinkedList.AddLast("Two");
             simpleTailLinkedList.AddLast("3");

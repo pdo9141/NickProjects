@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 
 namespace DataStructureAlgorithmsConsoleApp.LinkedList
 {
-    public class SimpleLinkedList
+    public class SimpleLinkedList<AnyType>
     {
-        public Node head = null;
+        public Node<AnyType> head;
 
-        public void AddLast(object data)
+        public void AddLast(AnyType data)
         {
             // O(n)
-            Node newItem = new Node();
+            Node<AnyType> newItem = new Node<AnyType>();
             newItem.data = data;
 
             if (head == null)
@@ -23,7 +23,7 @@ namespace DataStructureAlgorithmsConsoleApp.LinkedList
             else
             {
                 // loop and find the last node
-                Node current = head;
+                Node<AnyType> current = head;
 
                 while (current.next != null)
                 {
@@ -35,9 +35,9 @@ namespace DataStructureAlgorithmsConsoleApp.LinkedList
             }
         }
 
-        public void AddFirst(object data)
+        public void AddFirst(AnyType data)
         {
-            Node newItem = new Node();
+            Node<AnyType> newItem = new Node<AnyType>();
             newItem.data = data;
             newItem.next = head;
             head = newItem;
@@ -46,7 +46,7 @@ namespace DataStructureAlgorithmsConsoleApp.LinkedList
         public void ReadAll()
         {
             // O(n)
-            Node current = head;
+            Node<AnyType> current = head;
 
             while (current.next != null)
             {

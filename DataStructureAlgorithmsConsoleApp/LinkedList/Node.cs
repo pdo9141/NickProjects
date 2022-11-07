@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace DataStructureAlgorithmsConsoleApp.LinkedList
 {
-    public class Node
+    public class Node<AnyType>
     {
-        public object data = null;
+        public AnyType data;
         
-        public Node next = null;
+        public Node<AnyType> next;
     }
 }

@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 
 namespace DataStructureAlgorithmsConsoleApp.LinkedList
 {
-    public class SimpleTailLinkedList
+    public class SimpleTailLinkedList<AnyType>
     {
-        public Node head = null;
-        public Node tail = null;
+        public Node<AnyType> head;
+        public Node<AnyType> tail;
 
-        public void AddLast(object data)
+        public void AddLast(AnyType data)
         {
             // O(1)
-            Node newItem = new Node();
+            Node<AnyType> newItem = new Node<AnyType>();
             newItem.data = data;
 
             if (head == null)
@@ -28,9 +28,9 @@ namespace DataStructureAlgorithmsConsoleApp.LinkedList
             }
         }
 
-        public void AddFirst(object data)
+        public void AddFirst(AnyType data)
         {
-            Node newItem = new Node();
+            Node<AnyType> newItem = new Node<AnyType>();
             newItem.data = data;
 
             if (head == null)
@@ -48,7 +48,7 @@ namespace DataStructureAlgorithmsConsoleApp.LinkedList
         public void ReadAll()
         {
             // O(n)
-            Node current = head;
+            Node<AnyType> current = head;
 
             while (current.next != null)
             {
