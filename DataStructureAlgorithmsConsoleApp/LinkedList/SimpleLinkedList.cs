@@ -18,7 +18,6 @@ namespace DataStructureAlgorithmsConsoleApp.LinkedList
             if (head == null)
             {
                 head = newItem;
-                head.next = null;
             }
             else
             {
@@ -31,7 +30,6 @@ namespace DataStructureAlgorithmsConsoleApp.LinkedList
                 }
 
                 current.next = newItem;
-                newItem.next = null;
             }
         }
 
