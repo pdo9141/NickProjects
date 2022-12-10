@@ -67,6 +67,7 @@ namespace DataStructureAlgorithmsConsoleApp
 
         private static void RunLinkedListTest()
         {
+            /*
             SimpleLinkedList<string> simpleLinkedList = new SimpleLinkedList<string>();
             simpleLinkedList.AddLast("One");
             simpleLinkedList.AddLast("Two");
@@ -76,14 +77,21 @@ namespace DataStructureAlgorithmsConsoleApp
             simpleLinkedList.ReadAll();
 
             Console.WriteLine("");
+            */
 
             SimpleTailLinkedList<string> simpleTailLinkedList = new SimpleTailLinkedList<string>();
-            simpleTailLinkedList.AddLast("One");
-            simpleTailLinkedList.AddLast("Two");
-            simpleTailLinkedList.AddLast("3");
-            simpleTailLinkedList.AddLast("4");
-            simpleTailLinkedList.AddFirst("First");
-            simpleTailLinkedList.ReadAll();
+            simpleTailLinkedList.AddLast("10");
+            simpleTailLinkedList.AddLast("20");
+            simpleTailLinkedList.AddLast("30");
+            simpleTailLinkedList.AddLast("40");
+            simpleTailLinkedList.AddLast("50");
+            //simpleTailLinkedList.Reverse();
+            simpleTailLinkedList.GetKthFromTheEnd(1);
+            simpleTailLinkedList.GetKthFromTheEnd(2);
+            simpleTailLinkedList.GetKthFromTheEnd(3);
+            simpleTailLinkedList.GetKthFromTheEnd(4);
+            simpleTailLinkedList.GetKthFromTheEnd(5);
+            //simpleTailLinkedList.ReadAll();
         }
     }
 }
