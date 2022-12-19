@@ -11,7 +11,12 @@ namespace DataStructureAlgorithmsConsoleApp
             // Helps us determine if a particular algorithm is scalable
             // We need to consider space complexity as well, if we have a lot of space so we can optimize our algorithm by utilizing memory
             
-            RunLinkedListTest();
+            // RunLinkedListTest();
+
+            RunIsStringBalanced("(1 + 2)");
+            RunIsStringBalanced("((1 + 2{))");
+            RunIsStringBalanced("<(1 + 2) + (9 % 3)>");
+            RunIsStringBalanced("<([1] + 2) + (<9> % 3)>");
         }
 
         private static void GetFirstStringFromList(List<string> data)
@@ -92,6 +97,48 @@ namespace DataStructureAlgorithmsConsoleApp
             simpleTailLinkedList.GetKthFromTheEnd(4);
             simpleTailLinkedList.GetKthFromTheEnd(5);
             //simpleTailLinkedList.ReadAll();
+        }
+
+        private static void RunIsStringBalanced(string input)
+        {
+            var result = true;
+            var balanceCharHolder = new Stack<char>();
+            var balanceCharLookup = new Dictionary<char, char>
+            {
+                { '>', '<'}, { ')', '('}, { ']', '['}, { '}', '{'}
+            };
+
+            foreach (var value in input)
+            {
+                if (balanceCharLookup.ContainsValue(value))
+                {
+                    balanceCharHolder.Push(value);
+                }
+
+                if (balanceCharLookup.ContainsKey(value))
+                {
+                    if (balanceCharHolder.Count == 0)
+                    {
+                        result = false;
+                        break;
+                    }
+
+                    var lastEntry = balanceCharHolder.Pop();
+                    
+                    if (balanceCharLookup[value] != lastEntry)
+                    {
+                        result = false;
+                        break;
+                    }
+                }
+            }
+
+            if (balanceCharHolder.Count > 0)
+            {
+                result = false;
+            }
+
+            Console.WriteLine($"String is {(result ? "balanced" : "unbalanced")}: {input}");
         }
     }
 }
