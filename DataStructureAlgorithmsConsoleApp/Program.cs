@@ -1,4 +1,5 @@
 ﻿using DataStructureAlgorithmsConsoleApp.LinkedList;
+using System.Collections.Generic;
 
 namespace DataStructureAlgorithmsConsoleApp
 {
@@ -11,12 +12,17 @@ namespace DataStructureAlgorithmsConsoleApp
             // Helps us determine if a particular algorithm is scalable
             // We need to consider space complexity as well, if we have a lot of space so we can optimize our algorithm by utilizing memory
             
+            // Linked List
             // RunLinkedListTest();
 
-            RunIsStringBalanced("(1 + 2)");
-            RunIsStringBalanced("((1 + 2{))");
-            RunIsStringBalanced("<(1 + 2) + (9 % 3)>");
-            RunIsStringBalanced("<([1] + 2) + (<9> % 3)>");
+            // Stacks (all operations in a stack run in O(1) or constant time)
+            // RunIsStringBalanced("(1 + 2)");
+            // RunIsStringBalanced("((1 + 2{))");
+            // RunIsStringBalanced("<(1 + 2) + (9 % 3)>");
+            // RunIsStringBalanced("<([1] + 2) + (<9> % 3)>");
+
+            // Queues (all operations in a stack run in O(1) or constant time)
+            ReverseQueue();
         }
 
         private static void GetFirstStringFromList(List<string> data)
@@ -101,6 +107,11 @@ namespace DataStructureAlgorithmsConsoleApp
 
         private static void RunIsStringBalanced(string input)
         {
+            // Stacks are Last-In First-Out (LIFO) data structure
+            // Go for when you want to undo or do things in reverse order
+            // They can be implemented internally using arrays or linked lists
+            // All operations in a stack run in O(1) or constant time
+
             var result = true;
             var balanceCharHolder = new Stack<char>();
             var balanceCharLookup = new Dictionary<char, char>
@@ -139,6 +150,39 @@ namespace DataStructureAlgorithmsConsoleApp
             }
 
             Console.WriteLine($"String is {(result ? "balanced" : "unbalanced")}: {input}");
+        }
+
+        private static void ReverseQueue()
+        {
+            // You're only allowed to use add, remove, and isEmpty methods
+            var stack = new Stack<int>();
+            var queue = new Queue<int>();
+            queue.Enqueue(10);
+            queue.Enqueue(20);
+            queue.Enqueue(30);
+
+            foreach(var item in queue)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine(string.Empty);
+
+            for (int i=0; i<queue.Count; i++)
+            {
+                var item = queue.Dequeue();
+                stack.Push(item);
+            }
+
+            while (stack.Count > 0)
+            {
+                queue.Enqueue(stack.Pop());
+            }
+
+            foreach(var item in queue)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
