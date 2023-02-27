@@ -22,7 +22,14 @@ namespace DataStructureAlgorithmsConsoleApp
             // RunIsStringBalanced("<([1] + 2) + (<9> % 3)>");
 
             // Queues (all operations in a stack run in O(1) or constant time)
-            ReverseQueue();
+            // When implementing queue using array, use circular array
+            // To keep track of circular array use this formula to enqueue unused array index: (index + 1) % items.length
+            // You can implement queue by using two stack (enqueue and dequeue stacks), whenever dequeue stack is empty pop all enqueue items into dequeue stack
+            // ReverseQueue();
+
+            // HashMaps (most  operations in a stack run in O(1) or constant time)
+            // ContainsKey runs O(1) while ContainsValue runs O(n)
+            FindFirstNonRepeatedCharacter("A Green Apple");
         }
 
         private static void GetFirstStringFromList(List<string> data)
@@ -183,6 +190,35 @@ namespace DataStructureAlgorithmsConsoleApp
             {
                 Console.WriteLine(item);
             }
+        }
+    
+        private static void FindFirstNonRepeatedCharacter(string input)
+        {
+            var result = new Dictionary<char, int>();
+            
+            foreach (char character in input)
+            {
+                if (!result.ContainsKey(character))
+                {
+                    result.Add(character, 1);
+                }
+                else
+                {
+                    result[character] = result[character] + 1;
+                }
+            }
+
+            // You can't loop through the result dictionary since it's not ordered by inserted sequence
+            foreach (char character in input)
+            {
+                if (result[character] == 1)
+                {
+                    Console.WriteLine($"{character} is the first non repeated character");
+                    return;
+                }
+            }
+
+            Console.WriteLine("Found no characters that are not repeating");
         }
     }
 }
