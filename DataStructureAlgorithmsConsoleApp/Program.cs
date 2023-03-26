@@ -1,4 +1,5 @@
 ﻿using DataStructureAlgorithmsConsoleApp.LinkedList;
+using DataStructureAlgorithmsConsoleApp.Tree;
 using System.Collections.Generic;
 
 namespace DataStructureAlgorithmsConsoleApp
@@ -29,7 +30,14 @@ namespace DataStructureAlgorithmsConsoleApp
 
             // HashMaps (most  operations in a stack run in O(1) or constant time)
             // ContainsKey runs O(1) while ContainsValue runs O(n)
-            FindFirstNonRepeatedCharacter("A Green Apple");
+            // FindFirstNonRepeatedCharacter("A Green Apple");
+
+            // Binary Tree has at most 2 children of a node, use trees when you want to represent hierarachical data
+            // Databases, autocompletion, compilers, compression (JPEG, MP3) algorithms
+            // Binary Search Tree is when node value is less than anything to its right and greater than anything to its left
+            // Binary Search Tree helps optimize searches by narrowing search to left or right side with each iteration (logarithmic time)
+            // Lookup, delete, and insert runs O(log n)
+            RunBinarySearchTreeTest();
         }
 
         private static void GetFirstStringFromList(List<string> data)
@@ -219,6 +227,20 @@ namespace DataStructureAlgorithmsConsoleApp
             }
 
             Console.WriteLine("Found no characters that are not repeating");
+        }
+
+        private static void RunBinarySearchTreeTest()
+        {
+            var tree = new DataStructureAlgorithmsConsoleApp.Tree.Tree();
+            tree.Insert(7);
+            tree.Insert(4);
+            tree.Insert(9);
+            tree.Insert(1);
+            tree.Insert(6);
+            tree.Insert(8);
+            tree.Insert(10);
+
+            Console.WriteLine(tree.Find(11));
         }
     }
 }
