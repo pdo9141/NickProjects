@@ -38,6 +38,9 @@ namespace DataStructureAlgorithmsConsoleApp
             // Binary Search Tree helps optimize searches by narrowing search to left or right side with each iteration (logarithmic time)
             // Lookup, delete, and insert runs O(log n)
             RunBinarySearchTreeTest();
+
+            // FactorialLoop(4);
+            // Console.WriteLine(FactorialRecursion(4));
         }
 
         private static void GetFirstStringFromList(List<string> data)
@@ -240,7 +243,31 @@ namespace DataStructureAlgorithmsConsoleApp
             tree.Insert(8);
             tree.Insert(10);
 
-            Console.WriteLine(tree.Find(11));
+            // Console.WriteLine(tree.Find(11));
+            // tree.TraversePreOrder();
+            tree.TraversePostOrder();
+        }
+
+        private static void FactorialLoop(int n)
+        {
+            var factorial = 1;
+            for (var i = n; i > 1; i--)
+            {
+                factorial *= i;
+            }
+
+            Console.WriteLine(factorial);
+        }
+
+        private static int FactorialRecursion(int n)
+        {
+            // Base condition (way to terminate recursion)
+            if (n == 0)
+            {
+                return 1;
+            }
+
+            return n * FactorialRecursion(n - 1);
         }
     }
 }

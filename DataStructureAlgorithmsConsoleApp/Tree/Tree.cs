@@ -66,6 +66,64 @@ namespace DataStructureAlgorithmsConsoleApp.Tree
 
             return false;
         }
+
+        public void TraversePreOrder()
+        {
+            if (root != null)
+            {
+                TraversePreOrder(root);
+            }
+        }
+
+        private void TraversePreOrder(Node root)
+        {
+            // Base condition (way to terminate recursion)
+            if (root == null)
+            {
+                return;
+            }
+
+            Console.WriteLine(root.value);
+
+            if (root.leftChild != null)
+            {
+                TraversePreOrder(root.leftChild);
+            }
+
+            if (root.rightChild != null)
+            {
+                TraversePreOrder(root.rightChild);
+            }
+        }
+
+        public void TraversePostOrder()
+        {
+            if (root != null)
+            {
+                TraversePostOrder(root);
+            }
+        }
+
+        private void TraversePostOrder(Node root)
+        {
+            // Base condition (way to terminate recursion)
+            if (root == null)
+            {
+                return;
+            }
+
+            if (root.leftChild != null)
+            {
+                TraversePostOrder(root.leftChild);
+            }
+
+            if (root.rightChild != null)
+            {
+                TraversePostOrder(root.rightChild);
+            }
+
+            Console.WriteLine(root.value);
+        }
     }
 
     public class Node
