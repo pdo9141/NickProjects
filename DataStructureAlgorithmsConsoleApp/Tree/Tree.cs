@@ -124,6 +124,81 @@ namespace DataStructureAlgorithmsConsoleApp.Tree
 
             Console.WriteLine(root.value);
         }
+
+        public int Height()
+        {
+            return Height(root);
+        }
+
+        private int Height(Node root)
+        {
+            // Base condition
+            if (root == null)
+                return -1;
+            
+            if (root.leftChild == null && root.rightChild == null)
+                return 0;
+
+            return 1 + Math.Max(Height(root.leftChild), Height(root.rightChild));
+        }
+
+        public int Min()
+        {
+            // Binary Tree
+            // O(n)
+            return Min(root);
+        }
+
+        public int MinForBinarySearchTree()
+        {
+            // Binary Search Tree
+            // O{}
+            if (root == null)
+                throw new InvalidDataException();
+
+            var current = root;
+            var last = current;
+
+            while (current != null)
+            {
+                last = current;
+                current = current.leftChild;
+            }                
+
+            return last.value;
+        }
+
+        private int Min(Node root)
+        {
+            // Base condition
+            if (root.leftChild == null && root.rightChild == null)
+                return root.value;
+
+            var left = Min(root.leftChild);
+            var right = Min(root.rightChild);
+
+            return Math.Min(Math.Min(left, right), root.value);
+        }
+
+        public bool Equals(Tree other)
+        {
+            return Equals(root, other.root);
+        }
+
+        private bool Equals(Node first, Node second)
+        {
+            if (first == null && second == null)
+                return true;
+
+            if (first != null && second != null)
+            {
+                return first.value == second.value
+                    && Equals(first.leftChild, second.leftChild)
+                    && Equals(first.rightChild, second.rightChild);
+            }  
+
+            return false;              
+        }
     }
 
     public class Node
