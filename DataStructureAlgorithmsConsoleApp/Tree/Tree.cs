@@ -199,6 +199,52 @@ namespace DataStructureAlgorithmsConsoleApp.Tree
 
             return false;              
         }
+
+        public bool IsBinarySearchTree() {
+            return IsBinarySearchTree(root, int.MinValue, int.MaxValue);
+        }
+
+        private bool IsBinarySearchTree(Node root, int min, int max) {
+            if (root == null) {
+                return true;
+            }
+
+            if (root.value < min || root.value > max) {
+                return false;
+            }
+
+            return IsBinarySearchTree(root.leftChild, min, root.value -1) && IsBinarySearchTree(root.rightChild, root.value + 1, max);
+        }
+
+        public void SwapRoot() {
+            var temp = root.leftChild;
+            root.leftChild = root.rightChild;
+            root.rightChild = temp;
+        }
+    
+        public void PrintNodesAtDistance(int distance) {
+            PrintNodesAtDistance(root, distance);
+        }
+
+        private void PrintNodesAtDistance(Node root, int distance) {
+            if (root == null) {
+                return;
+            }
+
+            if (distance == 0) {
+                Console.WriteLine(root.value);
+                return;
+            }
+
+            PrintNodesAtDistance(root.leftChild, distance - 1);
+            PrintNodesAtDistance(root.rightChild, distance - 1);
+        }
+    
+        public void TraverseLevelOrder() {
+            for (var i=0; i<= Height(); i++) {
+                PrintNodesAtDistance(i);
+            }
+        }
     }
 
     public class Node
