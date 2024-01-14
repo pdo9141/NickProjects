@@ -1,5 +1,6 @@
 ﻿using DataStructureAlgorithmsConsoleApp.LinkedList;
 using DataStructureAlgorithmsConsoleApp.Tree;
+using DataStructureAlgorithmsConsoleApp.DynamicConnectivity;
 using System.Collections.Generic;
 
 namespace DataStructureAlgorithmsConsoleApp
@@ -37,10 +38,21 @@ namespace DataStructureAlgorithmsConsoleApp
             // Binary Search Tree is when node value is less than anything to its right and greater than anything to its left
             // Binary Search Tree helps optimize searches by narrowing search to left or right side with each iteration (logarithmic time)
             // Lookup, delete, and insert runs O(log n)
-            RunBinarySearchTreeTest();
+            // RunBinarySearchTreeTest();
 
             // FactorialLoop(4);
             // Console.WriteLine(FactorialRecursion(4));
+
+            // AVL (Adelson-Velsky and Landis) Trees are self-balancing trees
+            // To self-balance AVL Trees use rotations, right heavy tree will need left rotation
+            // Left heavy tree will need right rotation, some trees will require both
+
+            // You can implement Heaps using Arrays since Heaps are complete
+            // Heaps are nearly complete binary tree
+            // Uses of heaps include heapsort, priority queues, types include max heaps and min heaps
+            // left(i) = 2*i, right(i) = 2*i + 1, parent(i) = floor (i/2)
+
+            QuickFindTest();
         }
 
         private static void GetFirstStringFromList(List<string> data)
@@ -285,6 +297,21 @@ namespace DataStructureAlgorithmsConsoleApp
             }
 
             return n * FactorialRecursion(n - 1);
+        }
+
+        private static void QuickFindTest()
+        {
+            var quickFind = new QuickFind(10);
+            quickFind.Union(4, 3);
+            quickFind.Union(3, 8);
+            quickFind.Union(6, 5);
+            quickFind.Union(9, 4);
+            quickFind.Union(2, 1);
+            Console.WriteLine($"IsConnected(8, 9) = {quickFind.IsConnected(8, 9)}");
+            Console.WriteLine($"IsConnected(5, 0) = {quickFind.IsConnected(5, 0)}");
+            quickFind.Union(5, 0);
+            quickFind.Union(7, 2);
+            quickFind.Union(6, 1);
         }
     }
 }
