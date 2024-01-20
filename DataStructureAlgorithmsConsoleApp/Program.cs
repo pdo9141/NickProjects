@@ -53,6 +53,7 @@ namespace DataStructureAlgorithmsConsoleApp
             // left(i) = 2*i, right(i) = 2*i + 1, parent(i) = floor (i/2)
 
             QuickFindTest();
+            QuickUnionTest();
         }
 
         private static void GetFirstStringFromList(List<string> data)
@@ -312,6 +313,21 @@ namespace DataStructureAlgorithmsConsoleApp
             quickFind.Union(5, 0);
             quickFind.Union(7, 2);
             quickFind.Union(6, 1);
+        }
+
+        private static void QuickUnionTest()
+        {
+            var quickUnion = new QuickUnion(10);
+            quickUnion.Union(4, 3);
+            quickUnion.Union(3, 8);
+            quickUnion.Union(6, 5);
+            quickUnion.Union(9, 4);
+            quickUnion.Union(2, 1);
+            Console.WriteLine($"IsConnected(8, 9) = {quickUnion.IsConnected(8, 9)}");
+            Console.WriteLine($"IsConnected(5, 0) = {quickUnion.IsConnected(5, 0)}");
+            quickUnion.Union(5, 0);
+            quickUnion.Union(7, 2);
+            quickUnion.Union(6, 1);
         }
     }
 }
