@@ -55,6 +55,7 @@ namespace DataStructureAlgorithmsConsoleApp
             QuickFindTest();
             QuickUnionTest();
             QuickUnionWeightedTest();
+            QuickUnionWeightedWithPathCompressionTest();
         }
 
         private static void GetFirstStringFromList(List<string> data)
@@ -344,6 +345,21 @@ namespace DataStructureAlgorithmsConsoleApp
             quickUnionWeighted.Union(5, 0);
             quickUnionWeighted.Union(7, 2);
             quickUnionWeighted.Union(6, 1);
+        }
+
+        private static void QuickUnionWeightedWithPathCompressionTest()
+        {
+            var quickUnionWeightedWithPathCompression = new QuickUnionWeightedWithPathCompression(10);
+            quickUnionWeightedWithPathCompression.Union(4, 3);
+            quickUnionWeightedWithPathCompression.Union(3, 8);
+            quickUnionWeightedWithPathCompression.Union(6, 5);
+            quickUnionWeightedWithPathCompression.Union(9, 4);
+            quickUnionWeightedWithPathCompression.Union(2, 1);
+            Console.WriteLine($"IsConnected(8, 9) = {quickUnionWeightedWithPathCompression.IsConnected(8, 9)}");
+            Console.WriteLine($"IsConnected(5, 0) = {quickUnionWeightedWithPathCompression.IsConnected(5, 0)}");
+            quickUnionWeightedWithPathCompression.Union(5, 0);
+            quickUnionWeightedWithPathCompression.Union(7, 2);
+            quickUnionWeightedWithPathCompression.Union(6, 1);   
         }
     }
 }
